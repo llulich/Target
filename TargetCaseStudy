@@ -1,0 +1,15 @@
+import os
+#insert correct file path
+path = '<filePath>'
+
+list_of_files = filter(files, os.listdir(path))
+
+files = lambda * : os.path.isfile(os.path.join(path,*))
+
+
+file_size = [    (h,os.stat(os.path.join(path, h)).st_size)
+    for h in list_of_files]
+
+
+for h,e in file_size:
+    print("{} : {} bytes".format(h, round(e,3)))
